@@ -21,6 +21,7 @@ public class Player : MonoBehaviour {
 
 	private Rigidbody2D rb2d;
 	private Animator anim;
+	private gameMaster gm;
 
 	// Use this for initialization
 	void Start () {
@@ -29,6 +30,7 @@ public class Player : MonoBehaviour {
 
 		curHealth = maxHealth;
 		doubleJumpAdd = true;
+		gm = GameObject.FindGameObjectWithTag ("GameMaster").GetComponent<gameMaster> ();
 	}
 	
 	// Update is called once per frame
@@ -110,6 +112,13 @@ public class Player : MonoBehaviour {
 			rb2d.AddForce(new Vector3(knockbackDir.x * -100, knockbackDir.y * knockbackPwr, transform.position.z));
 		}
 		yield return 0;
+	}
+
+	void OnTriggerEnter2D(Collider2D col){
+		if (col.CompareTag ("Coin")) {
+			Destroy (col.gameObject);
+			gm.points += 1;
+		}
 	}
 
 	public void setDJ(){
