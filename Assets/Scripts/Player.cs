@@ -11,6 +11,8 @@ public class Player : MonoBehaviour {
 	public bool canDoubleJump;
 	public bool grounded;
 
+	public bool doubleJumpAdd;
+
 	//Stats
 	public int curHealth;
 	public int maxHealth = 2;
@@ -26,6 +28,7 @@ public class Player : MonoBehaviour {
 		anim = gameObject.GetComponent<Animator>();
 
 		curHealth = maxHealth;
+		doubleJumpAdd = true;
 	}
 	
 	// Update is called once per frame
@@ -44,7 +47,7 @@ public class Player : MonoBehaviour {
 				rb2d.AddForce (Vector2.up * jumpPower);
 				canDoubleJump = true;
 			} else {
-				if (canDoubleJump) {
+				if (canDoubleJump && doubleJumpAdd) {
 					canDoubleJump = false;
 					rb2d.velocity = new Vector2(rb2d.velocity.x, 0f);
 					rb2d.AddForce(Vector2.up * jumpPower);
@@ -107,5 +110,9 @@ public class Player : MonoBehaviour {
 			rb2d.AddForce(new Vector3(knockbackDir.x * -100, knockbackDir.y * knockbackPwr, transform.position.z));
 		}
 		yield return 0;
+	}
+
+	public void setDJ(){
+		doubleJumpAdd = true;
 	}
 }
