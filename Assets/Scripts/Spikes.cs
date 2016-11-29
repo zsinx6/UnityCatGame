@@ -13,7 +13,7 @@ public class Spikes : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col){
 		if(col.CompareTag("Player")){
 			player.Damage(1);
-			StartCoroutine(player.Knockback (0.025f, 350, player.transform.position));
+			StartCoroutine(player.Knockback (0.02f, 300, player.transform.position));
 		}
 	}
 	
