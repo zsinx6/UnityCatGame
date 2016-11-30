@@ -7,6 +7,7 @@ public class gameMaster : MonoBehaviour {
 	public int points;
 
 	public Text pointsText;
+	public Text InputText;
 
 	// Use this for initialization
 	void Start () {
