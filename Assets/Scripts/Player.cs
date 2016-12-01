@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
 		if (curHealth <= 0) {
 			Die ();
 		}
-		if (Input.GetKeyDown ("q") && grounded) {
+		if (Input.GetKeyDown ("r") && grounded) {
 			Attack ();
 		}
 	}
