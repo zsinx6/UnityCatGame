@@ -16,7 +16,6 @@ public class gameMaster : MonoBehaviour {
 	void Start () {
 		key = false;
 		anim = GameObject.FindGameObjectWithTag ("Finish").GetComponent<Animator> ();
-
 	}
 	
 	// Update is called once per frame
