@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
 	private Rigidbody2D rb2d;
 	private Animator anim;
 	private gameMaster gm;
+	private Persistent ps;
 
 	// Use this for initialization
 	void Start ()
@@ -43,6 +44,7 @@ public class Player : MonoBehaviour
 		curHealth = maxHealth;
 		doubleJumpAdd = true;
 		gm = GameObject.FindGameObjectWithTag ("GameMaster").GetComponent<gameMaster> ();
+		ps = GameObject.FindGameObjectWithTag ("Persistent").GetComponent<Persistent> ();
 	}
 	
 	// Update is called once per frame
@@ -114,9 +116,13 @@ public class Player : MonoBehaviour
 
 	void Die ()
 	{
-
-		//restart
-		Application.LoadLevel (Application.loadedLevel);
+		ps.lifes -= 1;
+		if (ps.lifes == 0) {
+			Debug.Log ("gameover");
+			Application.LoadLevel (3);
+		} else {
+			Application.LoadLevel (Application.loadedLevel);
+		}
 	}
 
 	public void Damage (int dmg)
