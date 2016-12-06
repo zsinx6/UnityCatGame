@@ -141,6 +141,10 @@ public class Player : MonoBehaviour
 			Destroy (col.gameObject);
 			gm.points += 1;
 		}
+		if (col.CompareTag ("Key")) {
+			Destroy (col.gameObject);
+			gm.Key ();
+		}
 	}
 
 	public void setDJ ()
