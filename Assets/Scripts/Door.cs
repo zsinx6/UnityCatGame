@@ -15,7 +15,7 @@ public class Door : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col){
 		if (col.CompareTag ("Player")) {
 			gm.InputText.text = ("E to enter");
-			if (Input.GetKeyDown ("e")) {
+			if (Input.GetKeyDown ("e") && gm.key) {
 				Application.LoadLevel (Application.loadedLevel+1);
 			}
 		}
@@ -23,7 +23,7 @@ public class Door : MonoBehaviour {
 
 	void OnTriggerStay2D(Collider2D col){
 		if (col.CompareTag ("Player")) {
-			if (Input.GetKeyDown ("e")) {
+			if (Input.GetKeyDown ("e") && gm.key) {
 				Application.LoadLevel (Application.loadedLevel+1);
 			}
 		}
