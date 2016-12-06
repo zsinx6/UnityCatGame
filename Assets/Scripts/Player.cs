@@ -139,8 +139,10 @@ public class Player : MonoBehaviour
 	void OnTriggerEnter2D (Collider2D col)
 	{
 		if (col.CompareTag ("Coin")) {
-			Destroy (col.gameObject);
+			AudioSource audio = gameObject.GetComponent<AudioSource> ();
+			audio.Play ();
 			gm.points += 1;
+			Destroy (col.gameObject);
 		}
 		if (col.CompareTag ("Key")) {
 			Destroy (col.gameObject);
