@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 	public float speed = 50f;
 	public float jumpPower = 150f;
 	public float maxSpeed = 3;
+	public float Delaytime = 1f;
 
 
 	public bool canDoubleJump;
@@ -153,14 +154,7 @@ public class Player : MonoBehaviour
 	}
 
 	IEnumerator Delay(){
-		yield return new WaitForSecondsRealtime(1f);
-	}
-
-	public void Attack ()
-	{
-		//gameObject.GetComponent<Animation> ().GetClip ("Cat_Hadouken");
-		anim.CrossFade("Cat_Hadouken", 0);
-		Delay ();
+		yield return new WaitForSecondsRealtime(Delaytime);
 		Vector2 direction;
 		if (lookingRight) {
 			direction = new Vector3 (transform.position.x + 10, transform.position.y, transform.position.z) - transform.position;
@@ -182,5 +176,14 @@ public class Player : MonoBehaviour
 			bulletClone.transform.localScale = new Vector3 (0.5f, 0.5f, 1f);
 			bulletClone.GetComponent<Rigidbody2D> ().velocity = direction * bulletSpeed;
 		}
+	
 	}
+
+	public void Attack ()
+	{
+		//gameObject.GetComponent<Animation> ().GetClip ("Cat_Hadouken");
+		anim.CrossFade ("Cat_Hadouken", 0);
+		StartCoroutine (Delay ());
+	}
+
 }
