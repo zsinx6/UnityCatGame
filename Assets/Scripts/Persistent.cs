@@ -4,10 +4,12 @@ using System.Collections;
 public class Persistent : MonoBehaviour {
 
 	public int lifes;
+	public bool isHado;
 
 	// Use this for initialization
 	void Start () {
 		lifes = 3;
+		isHado = false;
 	}
 
 	void Awake(){
@@ -17,5 +19,9 @@ public class Persistent : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	public void giveHado(){
+		isHado = true;
 	}
 }
