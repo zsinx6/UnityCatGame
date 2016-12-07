@@ -5,9 +5,11 @@ public class Persistent : MonoBehaviour {
 
 	public int lifes;
 	public bool isHado;
+	public int coins;
 
 	// Use this for initialization
 	void Start () {
+		coins = 0;
 		lifes = 3;
 		isHado = false;
 	}
