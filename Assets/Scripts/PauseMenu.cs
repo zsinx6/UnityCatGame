@@ -36,7 +36,7 @@ public class PauseMenu : MonoBehaviour {
 	}
 
 	public void MainMenu(){
-		Application.LoadLevel (0);
+		Application.LoadLevel (5);
 	}
 
 	public void Quit(){
