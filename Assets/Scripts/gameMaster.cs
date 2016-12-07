@@ -10,7 +10,7 @@ public class gameMaster : MonoBehaviour {
 	public Text InputText;
 
 	private Animator anim;
-	bool key;
+	public bool key;
 
 	// Use this for initialization
 	void Start () {
