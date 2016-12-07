@@ -119,8 +119,7 @@ public class Player : MonoBehaviour
 		if (ps != null) {
 			ps.lifes -= 1;
 			if (ps.lifes == 0) {
-				Debug.Log ("gameover");
-				Application.LoadLevel (4);
+				Application.LoadLevel (6);
 			} else {
 				Application.LoadLevel (Application.loadedLevel);
 			}
