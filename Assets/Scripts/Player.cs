@@ -116,10 +116,14 @@ public class Player : MonoBehaviour
 
 	void Die ()
 	{
-		ps.lifes -= 1;
-		if (ps.lifes == 0) {
-			Debug.Log ("gameover");
-			Application.LoadLevel (3);
+		if (ps != null) {
+			ps.lifes -= 1;
+			if (ps.lifes == 0) {
+				Debug.Log ("gameover");
+				Application.LoadLevel (3);
+			} else {
+				Application.LoadLevel (Application.loadedLevel);
+			}
 		} else {
 			Application.LoadLevel (Application.loadedLevel);
 		}
