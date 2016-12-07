@@ -29,13 +29,11 @@ public class Player : MonoBehaviour
 	public Transform shootPointLeft, shootPointRight;
 
 
-
 	private Rigidbody2D rb2d;
 	private Animator anim;
 	private gameMaster gm;
 	private Persistent ps;
 
-	// Use this for initialization
 	void Start ()
 	{
 		rb2d = gameObject.GetComponent<Rigidbody2D> ();
@@ -47,7 +45,6 @@ public class Player : MonoBehaviour
 		ps = GameObject.FindGameObjectWithTag ("Persistent").GetComponent<Persistent> ();
 	}
 	
-	// Update is called once per frame
 	void Update ()
 	{
 		anim.SetBool ("Grounded", grounded);
@@ -119,7 +116,7 @@ public class Player : MonoBehaviour
 		if (ps != null) {
 			ps.lifes -= 1;
 			if (ps.lifes == 0) {
-				Application.LoadLevel (6);
+				Application.LoadLevel (7);
 			} else {
 				Application.LoadLevel (Application.loadedLevel);
 			}
@@ -192,8 +189,8 @@ public class Player : MonoBehaviour
 
 	public void Attack ()
 	{
-		//gameObject.GetComponent<Animation> ().GetClip ("Cat_Hadouken");
 		anim.CrossFade ("Cat_Hadouken", 0);
+		//wait for animation
 		StartCoroutine (Delay ());
 	}
 

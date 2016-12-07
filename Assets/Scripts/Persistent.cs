@@ -2,12 +2,12 @@
 using System.Collections;
 
 public class Persistent : MonoBehaviour {
+	//this controls everything that must be persistent
 
 	public int lifes;
 	public bool isHado;
 	public int coins;
 
-	// Use this for initialization
 	void Start () {
 		coins = 0;
 		lifes = 3;
@@ -16,11 +16,6 @@ public class Persistent : MonoBehaviour {
 
 	void Awake(){
 		DontDestroyOnLoad(transform.gameObject);
-	}
-
-	// Update is called once per frame
-	void Update () {
-	
 	}
 
 	public void giveHado(){

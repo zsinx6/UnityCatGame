@@ -7,12 +7,10 @@ public class PauseMenu : MonoBehaviour {
 
 	private bool paused = false;
 
-	// Use this for initialization
 	void Start () {
 		PauseUI.SetActive(false);
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		if(Input.GetButtonDown("Pause")){
 			paused = !paused;
@@ -36,7 +34,7 @@ public class PauseMenu : MonoBehaviour {
 	}
 
 	public void MainMenu(){
-		Application.LoadLevel (5);
+		Application.LoadLevel (6);
 	}
 
 	public void Quit(){

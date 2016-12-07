@@ -27,7 +27,6 @@ public class Turret : MonoBehaviour {
 	}
 
 
-	// Use this for initialization
 	void Start () {
 		curHealth = maxHealth;
 	}

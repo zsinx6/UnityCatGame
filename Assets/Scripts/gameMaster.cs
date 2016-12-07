@@ -12,14 +12,12 @@ public class gameMaster : MonoBehaviour {
 	public bool key;
 	private Persistent ps;
 
-	// Use this for initialization
 	void Start () {
 		key = false;
 		anim = GameObject.FindGameObjectWithTag ("Finish").GetComponent<Animator> ();
 		ps = GameObject.FindGameObjectWithTag ("Persistent").GetComponent<Persistent> ();
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		pointsText.text = ("Points: " + ps.coins);
 	}
