@@ -81,7 +81,7 @@ public class Player : MonoBehaviour
 		if (curHealth <= 0) {
 			Die ();
 		}
-		if (Input.GetKeyDown ("r") && grounded) {
+		if (Input.GetKeyDown ("r") && grounded && ps.isHado) {
 			Attack ();
 		}
 	}
@@ -151,7 +151,7 @@ public class Player : MonoBehaviour
 		if (col.CompareTag ("Coin")) {
 			AudioSource audio = gameObject.GetComponent<AudioSource> ();
 			audio.Play ();
-			gm.points += 1;
+			ps.coins += 1;
 			Destroy (col.gameObject);
 		}
 		if (col.CompareTag ("Key")) {
