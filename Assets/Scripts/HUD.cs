@@ -23,7 +23,7 @@ public class HUD : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		HeartUI.sprite = HeartSprites [player.curHealth];
-		if(ps.lifes > 0)
+		if(ps != null && ps.lifes > 0)
 			LifeUI.sprite = LifeSprites [ps.lifes-1];
 
 	}
